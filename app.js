@@ -1,10 +1,14 @@
+document.getElementById("title").innerText = config.empresa;
+document.getElementById("description").setAttribute("content", config.descricao);
+
 document.getElementById("hero").innerHTML = `
   <h1>${config.titulo}</h1>
   <p>${config.subtitulo}</p>
-  <a class="btn" href="https://wa.me/${config.telefone}">Quero mais clientes</a>
+  <a class="btn" href="https://wa.me/${config.telefone}">WhatsApp</a>
 `;
 
 document.getElementById("problema").innerHTML = config.problema;
+document.getElementById("prova").innerHTML = `<p>${config.prova}</p>`;
 
 const servicos = document.getElementById("servicos");
 config.servicos.forEach(s => {
@@ -16,12 +20,14 @@ config.servicos.forEach(s => {
   `;
 });
 
-const depoimentos = document.getElementById("depoimentos");
-config.depoimentos.forEach(d => {
-  depoimentos.innerHTML += `<div class="review">⭐⭐⭐⭐⭐ ${d}</div>`;
+const reviews = document.getElementById("reviews");
+config.reviews.forEach(r => {
+  reviews.innerHTML += `<div class="review">⭐ ${r}</div>`;
 });
 
-document.getElementById("footer").innerHTML = `© ${config.empresa}`;
+document.getElementById("mapa").src = config.mapa;
 
-document.getElementById("whatsapp").href = `https://wa.me/${config.telefone}`;
 document.getElementById("ctaBtn").href = `https://wa.me/${config.telefone}`;
+document.getElementById("whatsapp").href = `https://wa.me/${config.telefone}`;
+
+document.getElementById("footer").innerHTML = `© ${config.empresa}`;
